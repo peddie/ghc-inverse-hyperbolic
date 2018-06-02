@@ -1,0 +1,40 @@
+name:                ghc-inverse-hyperbolic
+version:             0.1.0.0
+synopsis:            Proposed improvements for some inverse hyperbolic functions defined in GHC
+
+description:         This package generates error plots comparing GHC,
+                     GNU libm, MPFR and proposed pure-haskell
+                     replacements for the 'asinh' and 'atanh'
+                     functions, along with an implementation and
+                     comparison for the 'log1p' function which was
+                     needed to implement them.
+
+homepage:            https://github.com/peddie/ghc-inverse-hyperbolic
+license:             PublicDomain
+author:              Matthew Peddie
+maintainer:          mpeddie@gmail.com
+category:            Math
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+
+source-repository head
+  type:                git
+  location:            https://github.com/peddie/ghc-inverse-hyperbolic
+
+library
+  exposed-modules: Hyperbolic
+  build-depends:       base >=4.9 && <4.11
+                     , hmpfr == 0.4.4
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+
+executable generateInverseHyperbolicErrorPlots
+  main-is:             Main.hs
+  other-extensions:    ForeignFunctionInterface
+  build-depends:       base >=4.10 && <4.11
+                     , ghc-inverse-hyperbolic
+                     , Chart == 1.8.3
+                     , Chart-cairo == 1.8.3
+  hs-source-dirs:      exec
+  default-language:    Haskell2010

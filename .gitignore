@@ -1,0 +1,6 @@
+*.o
+*.hi
+*.so
+.cabal-sandbox
+.stack-work
+cabal.sandbox.config
