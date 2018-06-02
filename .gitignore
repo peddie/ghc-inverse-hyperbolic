@@ -4,3 +4,4 @@
 .cabal-sandbox
 .stack-work
 cabal.sandbox.config
+*.html
